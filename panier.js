@@ -19,7 +19,7 @@ function updateTotalAmount(products) {
     const totalAmountDiv = document.getElementById('total-amount');
 
     if (totalAmountDiv) {
-        totalAmountDiv.textContent = `Montant total : ${totalAmount.toFixed(2)} DH`;
+        totalAmountDiv.textContent = `Total : ${totalAmount.toFixed(2)} DH`;
     } else {
         console.warn("Élément 'total-amount' introuvable.");
     }
@@ -32,14 +32,14 @@ function displayCartItems(products) {
         return;
     }
 
-    cartContainer.innerHTML = ''; // Vider le contenu actuel
+    cartContainer.innerHTML = ''; 
 
     products.forEach(product => {
         const productRow = createCartItemRow(product);
         cartContainer.appendChild(productRow);
     });
 
-    // Mettre à jour le total
+    
     updateTotalAmount(products);
 }
 

@@ -190,13 +190,13 @@ function createProductCard(product) {
     card.appendChild(description);
     card.appendChild(button);
 
-    return card; // Return the complete card
+    return card; 
 }
 
 // Display products
 function displayProducts(products) {
     const productContainer = document.querySelector('.product-content');
-    productContainer.innerHTML = ''; // Clear existing products
+    productContainer.innerHTML = ''; 
 
     products.forEach(product => {
         const productCard = createProductCard(product);
@@ -205,20 +205,18 @@ function displayProducts(products) {
 }
 function displayCartItems(products) {
     const cartContainer = document.getElementById('cart-items');
-    cartContainer.innerHTML = ''; // Vider le contenu actuel
-
+    cartContainer.innerHTML = ''; 
     products.forEach(product => {
         const productRow = createCartItemRow(product);
         cartContainer.appendChild(productRow);
     });
 
-    // Mettre à jour le total
+   
     updateTotalAmount(products);
 }
 
 
-// Switch to grid view
-// Switch to grid view
+
 function setGridView() {
     const productContainer = document.querySelector('.product-content');
     productContainer.classList.remove('list-view');
@@ -230,7 +228,7 @@ function setGridView() {
     });
 }
 
-// Switch to list view
+
 function setListView() {
     const productContainer = document.querySelector('.product-content');
     productContainer.classList.remove('grid-view');
@@ -243,11 +241,9 @@ function setListView() {
 }
 
 
-// Add event listeners for grid and list icons
+
 document.getElementById('grid').addEventListener('click', setGridView);
 document.getElementById('list').addEventListener('click', setListView);
-
-// Filter products based on search input
 function filterProducts() {
     const query = document.getElementById('search-input').value.toLowerCase();
     const filteredProducts = products.filter(product =>
@@ -256,7 +252,5 @@ function filterProducts() {
     );
     displayProducts(filteredProducts);
 }
-
-// Event listeners
 document.addEventListener('DOMContentLoaded', getProducts);
 document.getElementById('search-input').addEventListener('input', filterProducts);
